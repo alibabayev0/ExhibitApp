@@ -1,6 +1,6 @@
 
 # ExhibitApp
-ExhibitApp is a sample exhibit android application 📱 
+ExhibitApp is a sample exhibit android application 📱 The project was done in 2 hrs ⏰
 # About
 It simply loads Phones data from API and shows it. Phones will be always loaded from remote (from API).
 Dummy API is used in this app. JSON response is statically hosted [here](https://my-json-server.typicode.com/Reyst/exhibit_db/list)
