@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+apply from: "$project.rootDir/dependencies.gradle"
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.uran.exhibitapp"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    dataBinding.enabled = true
+}
+
+dependencies {
+    api project(path: ':restexhibitsloader')
+    implementation project(':model')
+
+    implementation androidDependencies.androidxCore
+    implementation androidDependencies.appCompat
+    implementation androidDependencies.material
+    implementation androidDependencies.constraintLayout
+    implementation androidDependencies.fragmentKtx
+    implementation androidDependencies.navigationUiKtx
+
+    //Test
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.junitExt
+    androidTestImplementation testDependencies.espressoCore
+
+    // Glide
+    implementation extDependencies.glide
+    kapt extDependencies.glideCompiler
+}

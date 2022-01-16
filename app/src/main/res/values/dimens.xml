@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="item_exhibit_photo_width">200dp</dimen>
+    <dimen name="item_exhibit_photo_height">120dp</dimen>
+
+    <dimen name="item_exhibit_photo_space">10dp</dimen>
+    <dimen name="recycler_view_exhibit_images_vertical_margin">10dp</dimen>
+    <dimen name="text_view_exhibit_title_margin">5dp</dimen>
+    <dimen name="item_exhibit_padding">10dp</dimen>
+
+</resources>

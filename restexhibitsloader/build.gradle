@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+apply from: "$project.rootDir/dependencies.gradle"
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    def DOMAIN = "DOMAIN"
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "String", DOMAIN, "\"https://my-json-server.typicode.com/\""
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled false
+        }
+        debug {
+            buildConfigField "String", DOMAIN, "\"https://my-json-server.typicode.com/\""
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    api project(path: ':model')
+
+    implementation androidDependencies.androidxCore
+    implementation androidDependencies.appCompat
+    implementation androidDependencies.material
+
+    // Test
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.junitExt
+    androidTestImplementation testDependencies.espressoCore
+
+    // Logging Interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+
+    // Retrofit with Moshi Converter
+    implementation extDependencies.retrofit2
+    implementation extDependencies.retrofit2Gson
+
+    // Coroutines
+    implementation extDependencies.coroutinesCore
+    implementation extDependencies.coroutinesAndroid
+}
