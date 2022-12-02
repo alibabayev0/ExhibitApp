@@ -12,9 +12,9 @@
             android:layout_height="@dimen/item_exhibit_photo_height"
             android:layout_marginEnd="@dimen/item_exhibit_photo_space"
             android:contentDescription="@string/exhibit_photo_content_description"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

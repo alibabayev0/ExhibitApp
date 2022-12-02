@@ -36,14 +36,16 @@ class ExhibitFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        exhibitViewModel.exhibitListLiveData.observe(viewLifecycleOwner, {
+        exhibitViewModel.exhibitListLiveData.observe(viewLifecycleOwner) {
             setExhibitRecyclerAdapter(it)
-        })
+        }
     }
 
     private fun setExhibitRecyclerAdapter(data: List<Exhibit>) {
-        binding.recyclerViewExhibit.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerViewExhibit.adapter = ExhibitRecyclerAdapter(data, exhibitViewModel, viewLifecycleOwner)
+        binding.recyclerViewExhibit.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.recyclerViewExhibit.adapter =
+            ExhibitRecyclerAdapter(data, exhibitViewModel, viewLifecycleOwner)
     }
 
     override fun onDestroyView() {

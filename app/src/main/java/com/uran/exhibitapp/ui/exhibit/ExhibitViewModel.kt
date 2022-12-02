@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.uran.model.Exhibit
+import com.uran.model.ExhibitsLoader
 import com.uran.restexhibitsloader.ExhibitsLoaderImpl
 import kotlinx.coroutines.launch
 
@@ -14,7 +15,7 @@ import kotlinx.coroutines.launch
  * @github www.github.com/alibabayev0
 */
 class ExhibitViewModel constructor(
-    private val exhibitsLoaderImpl: ExhibitsLoaderImpl = ExhibitsLoaderImpl()
+    private val exhibitsLoaderImpl: ExhibitsLoader = ExhibitsLoaderImpl()
 ) : ViewModel() {
     private val _exhibitListLiveData = MutableLiveData<List<Exhibit>>()
     val exhibitListLiveData: LiveData<List<Exhibit>>

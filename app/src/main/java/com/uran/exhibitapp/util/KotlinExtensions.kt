@@ -16,7 +16,7 @@ import com.bumptech.glide.request.target.Target
 fun ImageView.loadImageFromNetwork(
     imgUrlSuffix: String?,
     onSuccess: () -> Unit = {},
-    onError: () -> Unit = {},
+    onError: () -> Unit = {}
 ) {
     Glide.with(this.context)
         .load(imgUrlSuffix)

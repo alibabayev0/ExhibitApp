@@ -16,7 +16,7 @@ import com.uran.model.Exhibit
 class ExhibitRecyclerAdapter(
     data: List<Exhibit>,
     _viewModel: ViewModel?,
-    lifecycleOwner: LifecycleOwner,
+    lifecycleOwner: LifecycleOwner
 ) : DataBindingRecyclerViewAdapter(data, _viewModel, lifecycleOwner) {
     override fun getLayoutIdForPosition(position: Int): Int {
         return when (val item = getObjForPosition(position)) {
